@@ -18,6 +18,16 @@ $job = $_POST['job'];
 $vote = $_POST['vote'];
 $idea = $_POST['idea'];
 
-$conn = mysqli_connect("localhost", "root@localhost",null,"test1118");
-mysql_set_charset($ketnoi,’utf8’);
-echo "connect";
+$servername = "localhost";
+$database = "test1118";
+$username = "root@localhost";
+$password = null;
+// Create connection
+$conn = mysqli_connect($servername, $username, $password, $database);
+// Check connection
+if (!$conn) {
+  die("Connection failed: " . mysqli_connect_error());
+}
+echo "Connected successfully";
+mysqli_close($conn);
+
