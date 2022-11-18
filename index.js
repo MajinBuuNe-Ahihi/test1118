@@ -5,16 +5,16 @@ var error1 = document.querySelector('#error1');
 var error2 = document.querySelector('#error2');
 
 
-let myregex = /^[0-9]{10,}$/;
+let myregex = /(^[0-9]{10}$)/;
 
 inputphone.addEventListener('change', (e) => {
   if (myregex.test(e.target.value)) {
-    console.log(myregex.test("hihi"));
-    button.setAttribute('disable', false);
+    button.disable = false;
     error1.classList.remove('active');
+    inputphone.style.border = 'none';
   }
   else {
-    button.setAttribute('disable', true);
+    button.disable = true;
     inputphone.style.border = 'red solid 1px';
     error1.classList.add('active');
   }
@@ -28,10 +28,11 @@ inputdate.addEventListener('change', (e) => {
     var age = Math.abs(year - 1970);  
   if (age >= 18 && age <= 30)
   {
-    button.setAttribute('disable', false);
+    button.disable = false;
     error2.classList.remove('active');
   }
   else {
+     button.disable = true;
     error2.classList.add('active');
   }
 })

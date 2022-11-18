@@ -18,15 +18,6 @@ $job = $_POST['job'];
 $vote = $_POST['vote'];
 $idea = $_POST['idea'];
 
-$conn = mysqli_connect("localhost","root","","test1118");
-
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
-
-
-$sql = "INSERT INTO user(fullname, dateofbirth, email,phone,major,study,job,vote,idea)
-VALUES (".$fullname.",". $dateofbirth .",". $email.",".$phone.",".$major.",".$study.",".$job.",".$vote.",".$idea.")";
-mysqli_query($conn, $sql);
-
-$conn->close();
+$conn = mysqli_connect("localhost", "root@localhost",null,"test1118");
+mysql_set_charset($ketnoi,’utf8’);
+echo "connect";
